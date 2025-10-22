@@ -13,4 +13,6 @@ class MediaRepository(private val apiService: ApiService) {
         ) { movieResponse, tvResponse ->
             Pair(movieResponse.titles, tvResponse.titles)
         }
+
+    fun getMediaDetails(id: Int) = apiService.getMediaDetails(id, BuildConfig.API_KEY)
 }

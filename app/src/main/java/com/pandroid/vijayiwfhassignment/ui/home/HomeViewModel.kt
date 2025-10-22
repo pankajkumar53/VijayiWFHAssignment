@@ -2,6 +2,7 @@ package com.pandroid.vijayiwfhassignment.ui.home
 
 import androidx.lifecycle.ViewModel
 import com.pandroid.vijayiwfhassignment.core.State
+import com.pandroid.vijayiwfhassignment.data.model.MediaDetails
 import com.pandroid.vijayiwfhassignment.data.model.Title
 import com.pandroid.vijayiwfhassignment.data.repo.MediaRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -15,18 +16,35 @@ class HomeViewModel(
 ) : ViewModel() {
 
     private val disposable = CompositeDisposable()
-    private val _state = MutableStateFlow<State<Pair<List<Title>, List<Title>>>>(State.Idle)
-    val uiState: StateFlow<State<Pair<List<Title>, List<Title>>>> = _state
+
+    private val _homeState = MutableStateFlow<State<Pair<List<Title>, List<Title>>>>(State.Idle)
+    val homeState: StateFlow<State<Pair<List<Title>, List<Title>>>> = _homeState
+
+    private val _detailState = MutableStateFlow<State<MediaDetails>>(State.Idle)
+    val detailState: StateFlow<State<MediaDetails>> = _detailState
 
     fun loadData() {
-        _state.value = State.Loading
+        _homeState.value = State.Loading
         disposable.add(
             repository.fetchMoviesAndShows()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { result -> _state.value = State.Success(result) },
-                    { error -> _state.value = State.Error(error.message, error) }
+                    { result -> _homeState.value = State.Success(result) },
+                    { error -> _homeState.value = State.Error(error.message, error) }
+                )
+        )
+    }
+
+    fun getMediaDetails(id: Int) {
+        _detailState.value = State.Loading
+        disposable.add(
+            repository.getMediaDetails(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { result -> _detailState.value = State.Success(result) },
+                    { error -> _detailState.value = State.Error(error.message, error) }
                 )
         )
     }

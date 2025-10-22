@@ -18,7 +18,7 @@ interceptor="4.12.0"
 converterGson = "2.11.0"
 
 # navigation for compose
-navigationCompose = "2.9.0"
+navigationCompose = "2.9.5"
 
 # material icons
 materialIconsExtended = "1.6.8"
@@ -33,6 +33,7 @@ koinAndroidxCompose = "3.4.6"
 # RxJava + RxAndroid
 rxjava = "3.1.8"
 rxandroid = "3.0.2"
+rxadapter = "2.11.0"
 
 # Shimmer for Compose
 composeShimmer = "1.2.0"
@@ -77,6 +78,7 @@ androidx-material-icons-extended = { module = "androidx.compose.material:materia
 # RxKotlin / RxJava3
 io-reactivex-rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
 io-reactivex-rxjava3-android = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+rxjava3-adapter = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "rxadapter" }
 
 # Shimmer effect for Compose
 compose-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "composeShimmer" }

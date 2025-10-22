@@ -1,8 +1,10 @@
 package com.pandroid.vijayiwfhassignment.data.api
 
+import com.pandroid.vijayiwfhassignment.data.model.MediaDetails
 import com.pandroid.vijayiwfhassignment.data.model.MediaResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -17,4 +19,10 @@ interface ApiService {
         @Query("apiKey") apiKey: String,
         @Query("types") types: String = "tv_series"
     ): Single<MediaResponse>
+
+    @GET("title/{id}/details/")
+    fun getMediaDetails(
+        @Path("id") id: Int,
+        @Query("apiKey") apiKey: String
+    ): Single<MediaDetails>
 }

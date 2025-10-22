@@ -99,6 +99,7 @@ dependencies {
 
     // Rx kotlin
     implementation(libs.io.reactivex.rxjava3)
+    implementation(libs.rxjava3.adapter)
     implementation(libs.io.reactivex.rxjava3.android)
 
     // Shimmer effect
