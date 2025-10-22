@@ -1,4 +1,4 @@
-package com.pandroid.vijayiwfhassignment
+package com.pandroid.vijayiwfhassignment.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

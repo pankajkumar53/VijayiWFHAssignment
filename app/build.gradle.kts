@@ -50,6 +50,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     kapt {
         correctErrorTypes = true
@@ -95,5 +96,12 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.retrofit.interceptor)
+
+    // Rx kotlin
+    implementation(libs.io.reactivex.rxjava3)
+    implementation(libs.io.reactivex.rxjava3.android)
+
+    // Shimmer effect
+    implementation(libs.compose.shimmer)
 
 }

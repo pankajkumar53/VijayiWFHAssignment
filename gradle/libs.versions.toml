@@ -30,6 +30,13 @@ kotlinxSerializationJson = "1.6.3"
 koinAndroid = "3.4.3"
 koinAndroidxCompose = "3.4.6"
 
+# RxJava + RxAndroid
+rxjava = "3.1.8"
+rxandroid = "3.0.2"
+
+# Shimmer for Compose
+composeShimmer = "1.2.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -66,6 +73,14 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 
 # material icons
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+
+# RxKotlin / RxJava3
+io-reactivex-rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+io-reactivex-rxjava3-android = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+
+# Shimmer effect for Compose
+compose-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "composeShimmer" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
