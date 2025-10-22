@@ -23,7 +23,11 @@ class HomeViewModel(
     private val _detailState = MutableStateFlow<State<MediaDetails>>(State.Idle)
     val detailState: StateFlow<State<MediaDetails>> = _detailState
 
-    fun loadData() {
+    init {
+        loadData()
+    }
+
+    private fun loadData() {
         _homeState.value = State.Loading
         disposable.add(
             repository.fetchMoviesAndShows()
