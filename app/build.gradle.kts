@@ -1,7 +1,18 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.kotlin.serialization)
+}
+
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) {
+        load(file.inputStream())
+    }
 }
 
 android {
@@ -16,6 +27,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", "\"${localProperties["BASE_URL"]}\"")
+        buildConfigField("String", "API_KEY", "\"${localProperties["API_KEY"]}\"")
     }
 
     buildTypes {
@@ -37,6 +51,9 @@ android {
     buildFeatures {
         compose = true
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -56,4 +73,27 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Koin for DI
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    // Serialization
+    implementation(kotlin("stdlib"))
+    implementation(libs.kotlinx.serialization.json)
+
+    // Material Icons
+    implementation(libs.androidx.material.icons.extended)
+
+    // Coil for images
+    implementation(libs.coil.compose)
+
+    // Retrofit + Gson + Interceptor
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.retrofit.interceptor)
+
 }
