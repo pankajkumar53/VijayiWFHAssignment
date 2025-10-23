@@ -118,6 +118,4 @@ dependencies {
 
     // Shimmer effect
     implementation(libs.compose.shimmer)
-    testImplementation(kotlin("test"))
-
 }
