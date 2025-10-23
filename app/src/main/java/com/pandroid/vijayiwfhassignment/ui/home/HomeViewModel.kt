@@ -27,7 +27,7 @@ class HomeViewModel(
         loadData()
     }
 
-    private fun loadData() {
+    fun loadData() {
         _homeState.value = State.Loading
         disposable.add(
             repository.fetchMoviesAndShows()

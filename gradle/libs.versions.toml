@@ -38,6 +38,13 @@ rxadapter = "2.11.0"
 # Shimmer for Compose
 composeShimmer = "1.2.0"
 
+# testing
+mockitoKotlin = "5.2.1"
+kotlinxCoroutinesTest = "1.7.3"
+mockitoCore = "5.11.0"
+mockitoInline = "5.2.0"
+turbine = "1.1.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -83,6 +90,12 @@ rxjava3-adapter = { module = "com.squareup.retrofit2:adapter-rxjava3", version.r
 # Shimmer effect for Compose
 compose-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "composeShimmer" }
 
+# testing
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlin" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
+mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInline" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
